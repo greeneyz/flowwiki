@@ -1,0 +1,256 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CAN#VAS Flow - End-user documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="scribbler-global.css">
+    <link rel="stylesheet" href="scribbler-doc.css">
+    <link rel="author" href="humans.txt">
+  </head>
+  <body>
+    <div class="doc__bg"></div>
+    <nav class="header">
+      <h1 class="logo">CAN#VAS Flow <span class="logo__thin">Wiki</span></h1>
+      <ul class="menu">
+        <div class="menu__item toggle"><span></span></div>
+        <li class="menu__item"><a href="http://flowdoc.millisecond.fi" class="link link--dark"><i class="fa fa-globe"></i> CAN#VAS Products</a></li>
+        <li class="menu__item"><a href="index.html" class="link link--dark"><i class="fa fa-home"></i> Home</a></li>
+      </ul>
+    </nav>
+    <div class="wrapper">
+      <aside class="doc__nav">
+        <ul>
+          <li class="js-btn selected">Get Started</li>
+          <li class="js-btn">Configuration</li>
+          <li class="js-btn">User Forms</li>
+          <li class="js-btn">Issues</li>
+        </ul>
+      </aside>
+      <article class="doc__content">
+        <section class="js-section">
+          <h3 class="section__title">Get Started</h3>
+          <p>Learn how to configure settings for Scribbler, such as your syntax highlighting preference and the default saving folder location.</p>
+          <h3 class="section__title">Installation</h3>
+          <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                <b>Step 01: Installing the application</b>
+                Press "INSTAL" on question 'Do you want to install this application ?'.
+                Press "Open". <br/>
+
+                <b>Step 02: Configuring the application</b>
+                Press "ALLOW" to give access to photos, media and files.
+                Press "ALLOW" to give access to location of device.<br/>
+
+                <b>Step 03: Connecting to application</b>
+                Enter you email address on 'Welcome Screen' to get the PIN code.
+                Press 'Already have code' to enter the PIN code received in the email.
+                Press "Send" after entering the PIN.<br/>
+
+                <b>Step 04: Understanding the application</b>
+                The 'green' color of "Service" and "CAN device" show the connectivity. If it is 'red' then there is no connected device.
+                Press 'Dashboard' to see the content.
+                Press 'User form' to fill-in and send the user form to backend.
+                Press 'Setting -> About' to see the application version, configuration file, ID, and account type.
+              </code>
+            </pre>
+          </div>
+        </section>
+        <section class="js-section">
+          <h3 class="section__title">Configuration</h3>
+          <p>Learn how to configure settings for Scribbler, such as your syntax highlighting preference and the default saving folder location.</p>
+          <table id="customers">
+            <tr>
+              <th>Options</th>
+              <th>Value</th>
+              <th>Default</th>
+            </tr>
+            <tr>
+              <td>Application configuration</td>
+              <td>Application configuration contains information which are used to customize the application capabilities.</td>
+              <td>true</td>
+            </tr>
+            <tr>
+              <td>forcedUpgrade</td>
+              <td>defines how many hours user can continue to use app without application is needed to be updated.</td>
+              <td>true</td>
+            </tr>
+            <tr>
+              <td>dataAPIUrl</td>
+              <td>defines URL where data json packages are send.</td>
+              <td>true</td>
+            </tr>
+
+            <tr>
+              <td>dashboardUrls</td>
+              <td>[url, title}defines N iframe URLs which are displayed in application dashboard screen.</td>
+              <td>true</td>
+            </tr>
+            <tr>
+              <td>localizationUrl</td>
+              <td>defines location of localization file.</td>
+              <td>true</td>
+            </tr>
+            <tr>
+              <td>accountType</td>
+              <td>defines account type. 1= Industrial, 2 = Consumer : capabilities varies for them.</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>devices</td>
+              <td>{btMac, btName} which BT devices are allowed to be connected with application. in MVP list is highlighted with green.
+                NEXT only allowed BT devices can be connected.</td>
+              <td>true</td>
+            </tr>
+            <tr>
+              <td>dataFreq</td>
+              <td>defines how often latest values are selected from: GPS, Accelerometer, CAN, BT and AP.
+                - Integer number, milliseconds, minimum allowed value is 1
+                - Replaces parameters gpsTime, accTime, canFreq, btFreq and apFreq
+                - NOTE that the timestamp for all collected paramter will be set to same.
+                e.g. if dataFreq is 2500, then timestamps will be like 2018-10-10 23:45:40.5, 2018-10-10 23:45:41.0, 2018-10-10 23:45:41.5 etc
+                - The timestamp syncronization makes the grouping for post calculation more efficient.</td>
+              <td>true</td>
+            </tr>
+            <tr>
+              <td>gpsAccuracy</td>
+              <td>defines min accuracy for GPS location which is acceptably collected.</td>
+              <td>true</td>
+            </tr>
+            <tr>
+              <td>canPgnList</td>
+              <td>if list is empty then all messages are collected. If list has PGNs, then only those messages, found from the PGN list are collected
+                e.g. "" all PGNs are collected
+                e.g. "12FE3401","12FEEF02" only values for these 2 PGNs collected.</td>
+              <td>true</td>
+            </tr>
+
+            <tr>
+              <td>btCount</td>
+              <td>defines how many BT devices are filtered to the list. In order of SSI strenght (highest selected).</td>
+              <td>true</td>
+            </tr>
+            <tr>
+              <td>apCount</td>
+              <td>defines how many Access Points are filtered to the list. In order of SSI strentgh (highest selected).</td>
+              <td>true</td>
+            </tr>
+            <tr>
+              <td>postTime</td>
+              <td>defines how often collected data is send to backend (sink).</td>
+              <td>true</td>
+            </tr>
+            <tr>
+              <td>ts</td>
+              <td>timestamp of the version ?</td>
+              <td>true</td>
+            </tr>
+          </table>
+          <hr />
+        </section>
+        <section class="js-section">
+          <h3 class="section__title">User Forms</h3>
+          <p>User forms can be freely modified.<br/>
+            There can be multiple parallel user forms (see defaul as an example).<br/>
+            Note: that the json is very picky of the format. If it's faulty the application will stop working or form is not displayed as you would expect. In worst case you need to re-install the app, since it will keep crashing.<br/>
+            The structure of the form is following:<br/>
+            Each user form can have 4 different kind of data entry types:<br/>
+            Type 1: Tickbox<br/>
+            Type 2: Radiobutton<br/>
+            Type 3: Free text field<br/>
+            Type 4: Pull down selection list</p>
+
+            <h4>Sample Form</h4>
+            <div class="hero__terminal">
+                <pre>
+                  <!-- Place your demo code here -->
+                  <code >
+                      [{
+                        "userFormId": "3form-1",    //ID of the form
+                        "title": "Form-1",          //title of the form
+                        "sectionList": [{
+                            "sectionId": "section1",
+                            "title": "Equipment Section 1",
+                            "info": "Some description about the section",
+                            "fieldList": [{
+                                "fieldId": "field1",
+                                "type": 1,                      //forexample, checkbox
+                                "title": "Equipment selection 1",
+                                "info": "Select the equipment from list below",
+                                "values": [{
+                                    "title": "KP-136",
+                                    "value": 1
+                                }, {
+                                    "title": "KP-137",
+                                    "value": 2
+                                }, {
+                                    "title": "KP-138",
+                                    "value": 3
+                                }]
+                            }, {
+                                "fieldId": "field2",
+                                "type": 2,
+                                "title": "Equipment selection 2",
+                                "info": "Select the equipment from list below",
+                                "values": [{
+                                    "title": "KP-139",
+                                    "value": 1
+                                }, {
+                                    "title": "KP-140",
+                                    "value": 2
+                                }, {
+                                    "title": "KP-138",
+                                    "value": 3
+                                }]
+                            }]
+                        }, {
+                            "sectionId": "section2",
+                            "title": "Equipment Section 2",
+                            "info": "Some description about the section",
+                            "fieldList": [{
+                                "fieldId": "field3",
+                                "type": 3,
+                                "title": "Equipment selection 3",
+                                "info": "Enter the text you want to...."
+                            }, {
+                                "fieldId": "field4",
+                                "type": 4,
+                                "title": "Equipment selection 4",
+                                "info": "Select the equipment from list below",
+                                "values": [{
+                                    "title": "KP-239",
+                                    "value": 1
+                                }, {
+                                    "title": "KP-240",
+                                    "value": 2
+                                }, {
+                                    "title": "KP-238",
+                                    "value": 3
+                                }]
+                            }]
+                        }]
+                    }
+                    ]
+                  </code>
+                </pre>
+              </div>
+          
+          <hr />
+        </section>
+        <section class="js-section">
+          <h3 class="section__title">Issues</h3>
+          <p>All the issues can be reported to <b>support@millisecond.fi</b></p>
+        </section>
+      </article>
+    </div>
+
+    <footer class="footer">The customization in CAN#VAS Flow app can be requested to <a href="https://www.millisecond.fi/" target="_blank" class="link link--light">Millisecond Oy</a>.</footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="scribbler.js"></script>
+  </body>
+</html>
